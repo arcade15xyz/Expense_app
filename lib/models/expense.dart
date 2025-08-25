@@ -28,7 +28,7 @@ class Expense {
   final DateTime date;
   final EnumCategory category;
 
-  get formattedDate{
+  get formattedDate {
     return formatter.format(date);
   }
 }
