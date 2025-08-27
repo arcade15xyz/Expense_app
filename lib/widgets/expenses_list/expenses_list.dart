@@ -3,14 +3,14 @@ import 'package:expense_app/widgets/expenses_list/expense_item.dart';
 import 'package:flutter/material.dart';
 
 class ExpansesList extends StatelessWidget {
-  ExpansesList({
+  const ExpansesList({
     super.key,
     required this.expenses,
     required this.onRemoveExpense,
   });
 
   final List<Expense> expenses;
-  void Function(Expense expense) onRemoveExpense;
+  final void Function(Expense expense) onRemoveExpense;
 
   @override
   Widget build(BuildContext context) {
