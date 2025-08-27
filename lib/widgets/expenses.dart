@@ -43,19 +43,25 @@ class _ExpensesState extends State<Expenses> {
   }
 
   void _removeExpense(Expense expense) {
+    // to get the index of a data in a list using indexOf.
     final expenseIndex = _registeredExpenses.indexOf(expense);
     setState(() {
       _registeredExpenses.remove(expense);
     });
+    // Clears all the SnackBar for the context i.e builder
     ScaffoldMessenger.of(context).clearSnackBars();
+    // Shows SnackBar for the context
     ScaffoldMessenger.of(context).showSnackBar(
+      // a widget which is like toaster message kinda not fully.
       SnackBar(
         duration: const Duration(seconds: 3),
         content: const Text('Expense deleted.'),
+        // what to do action on clicking action
         action: SnackBarAction(
           label: 'Undo',
           onPressed: () {
             setState(() {
+              // .insert, inserts the expense to a specific index.So, that  the undo works for same index the data is deleted from.
               _registeredExpenses.insert(expenseIndex, expense);
             });
           },
